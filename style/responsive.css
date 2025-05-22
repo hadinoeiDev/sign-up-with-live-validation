@@ -1,0 +1,106 @@
+/* responsive.css */
+:root {
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+/* responsive.css */
+@media (max-width: 480px) {
+
+    body {
+        transform: scale(0.8);
+        background-color: cadetblue;
+        background-size: cover;
+        background-position: 0% 0%;
+        justify-content: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+        rgba(18, 0, 43, 0.9)), url('../images/backGrounds/cyberpunk.png');
+    }
+
+    .leftSide {
+        display: none;
+    }
+
+        
+    .signIn {
+        font-size: 1.8rem;
+        font-weight: 600;
+        max-width: 100%;
+        color: #f2f5ff;
+        font-family: 'poppins';
+    }
+
+    .loginP {
+        color: #c6c1e4;
+        font-size: 0.9rem;
+    }
+    
+    .headerTitle a {
+        color: #7760f7;
+    }
+
+    .checkBoxDiv p {
+        color: #c6c1e4;
+        font-size: 0.8rem;
+    }
+
+    .checkBoxDiv a {
+        color: #7760f7;
+    }
+
+    .formLogo {
+        height: 3rem;
+    }
+
+    .google, .apple {
+        background-color: #f2f5ff;
+        color: #221a53;
+    }
+    
+    .passwordRules li {
+        color: #c2bddd;
+    }
+}
+
+
+@media (min-width: 481px) and (max-width: 850px) {
+
+    body {
+        background-size: cover;
+        background-position: 00%;
+        height: 100vh;
+        justify-content: center;
+        border-radius: 0.8rem;
+    }
+     .leftSide {
+        display: none;
+    }
+        
+    .rightSide {
+        width: 100%;
+        margin: auto;
+    }
+
+}
+
+
+@media (min-width: 851px) and (max-width: 1400px) {
+
+    body {
+        background-size: cover;
+        background-position: 00%;
+        height: 100vh;
+        justify-content: center;
+        border-radius: 0.8rem;
+    }
+     .leftSide {
+        display: none;
+    }
+        
+    .rightSide {
+        width: 100%;
+        margin: auto;
+    }
+}
+

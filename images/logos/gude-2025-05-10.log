@@ -1,0 +1,4 @@
+15:56:04:057 [WARN]	WGudeRequest::receiveResponse Failed - Request Handle Closed
+15:56:04:058 [WARN]	Request Failed. ErrorCode: 32 errorMessage: Network Error, Failed to Write Request Body. WinHTTP Invalid Server Response. last error code = 12152 
+15:56:05:499 [WARN]	WGudeRequest::receiveResponse Failed - Request Handle Closed
+15:56:05:499 [WARN]	Request Failed. ErrorCode: 32 errorMessage: Network Error, Failed to Write Request Body. WinHTTP Invalid Server Response. last error code = 12152 

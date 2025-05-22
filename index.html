@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Sign-up Form with Live Validation</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/responsive.css">
+
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/pass-container.js" defer></script>
+    <script src="scripts/test-password.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- <header></header> -->
+    <div class="container leftSide">
+        <div class="headerColumn">
+            <!-- <img class="logoImg" src="images/logos/logo.png" alt="logo"> -->
+        </div>
+        <div class="bottomColumn">
+            <div class="titleDesBox">
+                <p class="title">Everything Begins Right Here</p>
+                <p class="des">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi molestiae at non aut suscipit.</p>
+            </div>
+            <div class="signBox">
+                <p class="sign">Develop by Hadi noei</p>
+                <img class="emoji" src="images/Emojis/heart-on-fire.png" alt="fire-heart">
+                <p class="sign">5 9 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container rightSide">
+        <form class="form">
+            <div class="shapesBox">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40"/>
+                </svg>
+            </div>
+
+            <div class="formLogoBox">
+                 <picture>
+                    <source media="(max-width: 480px)" srcset="images/logos/logo1.png">
+                    <img class="formLogo" src="images/logos/logo4.png" alt="responsive image">
+                </picture>
+            </div>
+
+            <div class="headerTitle">
+                <p class="signIn">Create an account</p>
+                <p class="loginP">Already have an account? <a href="#">Log in</a></p>
+            </div>
+
+            <div class="inputs">
+                
+                <div class="firstLastName">
+                    <section>
+                        <input id="userFirstName" type="text" placeholder="First name" autocomplete="given-name">
+                        <p class="invalid" id="firstNameVal">English first name required!</p>
+                    </section>
+                    <section>
+                        <input id="userLastName" type="text" placeholder="Last name" autocomplete="family-name">
+                        <p class="invalid" id="lastNameVal">English last name required!</p>
+                    </section>
+                </div>
+
+                <section>
+                    <div class="password-container">
+                        <input id="userPassword" type="password" placeholder="Password" autocomplete="new-password">
+                        <span id="togglePassword">
+                            <svg id="togglePass" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <ul class="passwordRules">
+                        <li id="onlyEnglish" class="invalid">only English!</li>
+                        <li id="length" class="invalid">at least 8 characters</li>
+                        <li id="uppercase" class="invalid">at least one uppercase letter (A-Z)</li>
+                        <li id="number" class="invalid">at least one number (0-9)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <input id="userEmail" type="text" placeholder="Email" autocomplete="email">
+                    <div class="emailRules">
+                        <p id="emailVal" class="invalid"></p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="checkBoxDiv">
+                <div id="CBcolumn">
+                    <label class="customCheckBox" for="terms">
+                        <input type="checkbox" class="checkBox" id="terms">
+                        <span class="checkMark"></span>
+                    </label>
+                    <p class="CBTerms">I agree with the <a href="#">Terms & Conditions</a></p>
+                </div>
+                <div id="CBcolumn">
+                    <p class="invalid" id="checkBoxCheck">required!</p>
+                </div>
+            </div>
+
+            <div class="submitBox">
+                <section>
+                    <input type="submit" id="submit">
+                    <p class="invalid" id="submit-validation"></p>
+                </section>
+            </div>
+
+            <div class="divider">
+                <p>Or register with</p>
+            </div>
+
+            <div class="otherBox">
+                <a class="google" href="https://about.google/" target="_blank">Google</a>
+
+                <a class="apple"  href="https://www.apple.com/" target="_blank">Apple</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
