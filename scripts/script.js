@@ -144,7 +144,6 @@ function showHidePassword() {
 
 }
 
-
 function emailValidation() {
     const val = userEmail.value;  // اگر userPassword یعنی input ایمیله اوکیه
 
