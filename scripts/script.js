@@ -50,9 +50,6 @@ function LastNameValidation() {
         isLastNameIsValid = false;
     }
 
-    console.log(hasOnlyEnglishChars);
-
-
     
     if(hasOnlyEnglishChars) {
         isLastNameIsValid = true;
@@ -74,7 +71,6 @@ function FirstNameValidation() {
         isFirstNameIsValid = false;
     }
 
-    console.log(hasOnlyEnglishChars);
     
     if(hasOnlyEnglishChars) {
         isFirstNameIsValid = true;
@@ -111,11 +107,9 @@ function passwordValidation() {
 
     if(val.length >= 8 && hasUpperCase && hasNumber && hasOnlyEnglishChars) {
         isPasswordValid = true;
-        console.log(isPasswordValid);
         
     } else {
         isPasswordValid = false;
-        console.log(isPasswordValid);
 
     }
    
@@ -168,12 +162,12 @@ function emailValidation() {
         emailCheck.textContent = 'Valid email';
         emailCheck.style.color = '#00c500';
         isEmailValid = true;
-        console.log(isPasswordValid);
+
     } else {
         emailCheck.textContent = 'Invalid email';
         emailCheck.style.color = 'red';
         isEmailValid = false;
-        console.log(isPasswordValid);
+
     }
 };
 
@@ -190,12 +184,6 @@ function checkBoxValidation() {
 
 
 function getUserData(event) {
-    console.log(isFirstNameIsValid);
-    console.log(isLastNameIsValid);
-    console.log(isPasswordValid);
-    console.log(isEmailValid);
-    console.log(isCheckBoxValid);
-    
 
     event.preventDefault();
      
