@@ -19,7 +19,7 @@
 - Firebase (Realtime Database یا Firestore)
 
 ## نحوه اجرا
-کافیه فایل `index.html` رو باز کنی و فرم رو تست کنی.  
+کافیه فایل `sign-up-form.html` رو باز کنی و فرم رو تست کنی.  
 می‌تونی کدها رو توسعه بدی و ویژگی‌های جدید اضافه کنی.
 
 ---
@@ -55,7 +55,7 @@ Additionally, it integrates Fetch API for sending and receiving data to/from Fir
 - Firebase (Realtime Database or Firestore)
 
 ## How to run
-Simply open the `index.html` file in your browser and try the form.  
+Simply open the `sign-up-form.html` file in your browser and try the form.  
 Feel free to extend or customize it.
 
 ---
