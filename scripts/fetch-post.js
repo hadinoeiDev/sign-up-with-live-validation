@@ -57,7 +57,7 @@ function postUserData(event) {
   
     if (allValid) {
         const val = userPassword.value;
-        
+
         submitCheck.textContent = 'Loading...'
         submitCheck.style.display = 'flex';
         submitCheck.style.color = '#00c500';
@@ -71,7 +71,25 @@ function postUserData(event) {
         
         console.log(userData);
         
-        testPassword(val); 
+        // testPassword(val); 
+
+        fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json', {
+            method: 'POST',
+            headers: {
+            'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData),
+        })
+        .then((res) => {
+            console.log(res);
+            autoClean();
+            hideElements();
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        })
+        
         
     } else if(onlyPasswordInvalid) {
         submitCheck.style.display = 'flex';
@@ -113,5 +131,34 @@ function postUserData(event) {
     }
 
 };
+
+function autoClean() {
+    userFirstName.value = "";
+    userLastName.value = "";
+    togglePassword.value = "";
+    userPassword.value = "";
+    userEmail.value = "";
+    checkBox.checked = false;
+    
+    submitCheck.textContent = 'done';
+
+    setTimeout(() => {
+        submitCheck.style.display = 'none';
+    }, 1000);
+
+}
+
+
+
+function hideElements() {
+
+    const hideElements = [
+        passwordRules, onlyEnglishCheck, lengthCheck,
+        uppercaseCheck, numberCheck, emailRules, emailCheck
+    ];
+    
+    hideElements.forEach(el => el.style.display = 'none');
+
+}
 
 submit.addEventListener('click', postUserData);

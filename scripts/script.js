@@ -184,9 +184,9 @@ function checkBoxValidation() {
 
 
 
-togglePassword.addEventListener('click', showHidePassword);
 userFirstName.addEventListener('input', FirstNameValidation);
 userLastName.addEventListener('input', LastNameValidation);
 userPassword.addEventListener('input', passwordValidation);
+togglePassword.addEventListener('click', showHidePassword);
 userEmail.addEventListener('input', emailValidation);
 checkBox.addEventListener('input', checkBoxValidation);
