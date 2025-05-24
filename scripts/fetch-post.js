@@ -142,10 +142,6 @@ function autoClean() {
     
     submitCheck.textContent = 'done';
 
-    setTimeout(() => {
-        submitCheck.style.display = 'none';
-    }, 1000);
-
 }
 
 
@@ -158,6 +154,13 @@ function hideElements() {
     ];
     
     hideElements.forEach(el => el.style.display = 'none');
+
+    setTimeout(() => {
+        submitCheck.style.display = 'none';
+    }, 1000);
+
+    userPassword.type= "password";
+    togglePassword.innerHTML = hide;
 
 }
 
