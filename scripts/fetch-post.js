@@ -63,6 +63,7 @@ function postUserData(event) {
         submitCheck.style.color = '#00c500';
         
         let userData = {
+            id: 1,
             userFirstName: userFirstName.value,
             userLastName: userLastName.value,
             userPassword: userPassword.value,
