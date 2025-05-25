@@ -1,0 +1,87 @@
+/* responsive.css */
+:root {
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+/* responsive.css */
+@media (max-width: 480px) {
+    .newUserElem {
+        flex-direction: column;
+    }
+    .newUserName {
+      font-size: 1.2rem;
+    }
+    .user-data {
+        width: 50%;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        gap: 1rem;
+        height: 100%;
+        width: 50%;
+    }
+
+    button {
+      margin-top: 1rem;
+      height: 3rem;
+      width: 20rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.8rem;
+      transition: background 0.3s ease;
+    }
+}
+
+
+@media (min-width: 481px) and (max-width: 850px) {
+   .newUserElem {
+        flex-direction: column;
+    }
+    .newUserName {
+      font-size: 1.2rem;
+    }
+    .user-data {
+        width: 50%;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: right;
+        gap: 1rem;
+        height: 100%;
+        width: 50%;
+    }
+
+    button {
+      margin-top: 1rem;
+      height: 3rem;
+      width: 20rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.8rem;
+      transition: background 0.3s ease;
+    }
+}
+
+
+@media (min-width: 851px) and (max-width: 1400px) {
+      button {
+      width: 20rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.8rem;
+      transition: background 0.3s ease;
+    }
+
+}
+

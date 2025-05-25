@@ -8,17 +8,18 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
         return res.json();
     })
     .then(data => {
+        console.log(data);
         
         let usersData = Object.entries(data);
 
         usersData.forEach(user => {
             ulELem.insertAdjacentHTML('beforeend',
                 `<li class="newUserElem">
-                    <div class="userIdBox">${user[1].id}</div>
                     <div class = "user-data">
                         <p class="newUserName"><span>${user[1].userFirstName} ${user[1].userLastName}</span></p>
                         <p class="newUserEmail">Email: <span>${user[1].userEmail}</span></p>
                         <p class="newUserPassword">password: <span>${user[1].userPassword}</span></p>
+                        <p class="newUserId">ID:  <span>${user[1].id}</span></p>
                     </div>
                     <div class = "buttons">
                         <button class="editButton">edit</button>
