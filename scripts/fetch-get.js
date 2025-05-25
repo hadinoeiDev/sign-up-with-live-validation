@@ -15,7 +15,8 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
             ulELem.insertAdjacentHTML('beforeend',
                 `<li class="newUserElem">
                     <div class = "user-data">
-                        <p class="newUserName"><span>${user[1].userName} ${user[1].userLastName}</span></p>
+                        <p class="newUserName"><span>${user[1].userFirstName} ${user[1].userLastName}</span></p>
+                        <p class="newUserEmail">Email: <span>${user[1].userEmail}</span></p>
                         <p class="newUserPassword">password: <span>${user[1].userPassword}</span></p>
                     </div>
                     <div class = "buttons">
@@ -25,6 +26,5 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
                 </li>
                 `
             );      
-            
-        })
+        });
     });
