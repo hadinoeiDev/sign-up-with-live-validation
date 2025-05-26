@@ -9,6 +9,7 @@
 @media (max-width: 480px) {
 
     body {
+        height: 100%;
         transform: scale(0.8);
         background-color: cadetblue;
         background-size: cover;
