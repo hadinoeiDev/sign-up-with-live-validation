@@ -1,23 +1,61 @@
-/* responsive.css */
-:root {
-  --mobile: 480px;
-  --tablet: 768px;
-  --desktop: 1024px;
-}
 
 /* responsive.css */
 @media (max-width: 480px) {
+
+    header {
+      flex-direction: column;
+      height: 6rem;
+    }
+
+    .row1 img {
+        height: 2rem;
+    }
+
+
+    .nav-link-a {
+        text-decoration: none;
+        color: #a9c0ff;
+        font-size: 0.75rem;
+    }
+
+    .row1 {
+        justify-content: right;
+    }
+
+    .row3 {
+        justify-content: center;
+    }
+    
+    main {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+
+    .title {
+        text-align: center;
+        font-size: 2rem;
+    }
+
     .newUserElem {
         flex-direction: column;
     }
+
     .newUserName {
       font-size: 1.2rem;
     }
+
+
     .user-data {
         width: 50%;
         flex-direction: column;
         justify-content: left;
     }
+
     .buttons {
         display: flex;
         flex-direction: row;
@@ -41,6 +79,36 @@
 
 
 @media (min-width: 481px) and (max-width: 850px) {
+    
+    .row1 img {
+        height: 2.25rem;
+    }
+
+    .nav-links {
+        width: 70%;
+
+    }
+
+    .nav-link-a {
+        font-size: 0.8rem;
+    }
+      
+    main {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+
+    .title {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+
    .newUserElem {
         flex-direction: column;
     }
@@ -82,6 +150,10 @@
       border-radius: 0.8rem;
       transition: background 0.3s ease;
     }
+    
+    .nav-links {
+        width: 60%;
 
+    }
 }
 
