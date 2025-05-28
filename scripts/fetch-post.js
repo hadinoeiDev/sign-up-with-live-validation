@@ -56,6 +56,8 @@ function postUserData(event) {
     (!isPasswordValid && !isEmailValid && !isCheckBoxValid && !isFirstNameIsValid &  isLastNameIsValid);
   
     if (allValid) {
+        console.log(allValid);
+        
         const val = userPassword.value;
 
         submitCheck.textContent = 'Loading...'
@@ -82,7 +84,6 @@ function postUserData(event) {
             body: JSON.stringify(userData),
         })
         .then((res) => {
-            console.log(res);
             autoClean();
             hideElements();
 

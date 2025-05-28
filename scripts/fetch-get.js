@@ -13,20 +13,48 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
         let usersData = Object.entries(data);
 
         usersData.forEach(user => {
+            const userId = user[0]; // این ID اصلیه از Firebase
+            const userInfo = user[1]; // این اطلاعات کاربره
+
             ulELem.insertAdjacentHTML('beforeend',
                 `<li class="newUserElem">
                     <div class = "user-data">
-                        <p class="newUserName"><span>${user[1].userFirstName} ${user[1].userLastName}</span></p>
-                        <p class="newUserEmail">Email: <span>${user[1].userEmail}</span></p>
-                        <p class="newUserPassword">password: <span>${user[1].userPassword}</span></p>
-                        <p class="newUserId">ID:  <span>${user[1].id}</span></p>
+                        <p class="newUserName"><span>${userInfo.userFirstName} ${userInfo.userLastName}</span></p>
+                        <p class="newUserEmail">Email: <span>${userInfo.userEmail}</span></p>
+                        <p class="newUserPassword">password: <span>${userInfo.userPassword}</span></p>
+                        <p class="newUserId">ID:  <span>${userInfo.id}</span></p>
                     </div>
                     <div class = "buttons">
                         <button class="editButton">edit</button>
-                        <button class="deleteButton">delete</button>
+                        <button onclick='deleteBtn(event)' class="deleteButton" data-id="${userId}">delete</button>
                     </div>
                 </li>
                 `
             );      
         });
     });
+
+
+function deleteBtn(event) {
+
+    // remove from dom
+
+    let getParentElm = event.target.parentElement.parentElement;
+    getParentElm.remove();
+
+    // remove from fireBase
+
+    const userId = event.target.dataset.id;
+
+    fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userId}.json`, {
+        method: 'DELETE'
+    })
+        .then(res => {
+            return res.json();    
+        })
+        .then(data => {
+            console.log(data);
+        })
+
+    
+}  

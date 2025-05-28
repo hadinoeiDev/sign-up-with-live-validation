@@ -58,7 +58,7 @@ function LastNameValidation() {
     const hasOnlyEnglishChars = /^[A-Za-z]+$/.test(val);
 
     if(val.trim() === '') {
-        isLastNameIsValid = false;
+        return isLastNameIsValid = false;
     }
 
     
@@ -79,7 +79,7 @@ function FirstNameValidation() {
     const hasOnlyEnglishChars = /^[A-Za-z]+$/.test(val);
 
     if(val.trim() === '') {
-        isFirstNameIsValid = false;
+        return isFirstNameIsValid = false;
     }
 
     
@@ -104,7 +104,7 @@ function passwordValidation() {
     const hasNumber = /[0-9]/.test(val);
     
     if (val.trim() === '') {
-        isPasswordValid = false;
+        return isPasswordValid = false;
     }
 
     [passwordRules, onlyEnglishCheck, lengthCheck, uppercaseCheck, numberCheck].forEach(para => {
@@ -152,30 +152,34 @@ function emailValidation() {
 
     const emailValidRegex = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo)\.com$/.test(val);
 
-     const targetEmail = userEmail.value; 
+    const targetEmail = userEmail.value; 
 
-        fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
-        .then(res => {
-            console.log(res);
-            return res.json();
-        })
+     
+    if (val.trim() === '') {
+        return isEmailValid = false;
+    }
+    
+    fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
+    .then(res => {
+        console.log(res);
+        return res.json();
+    })
         .then(data =>{
-
             let objData = Object.entries(data);
-            
+
             let someUserEmail = objData.some(userData => {
                 return userData[1].userEmail === targetEmail;
             });
-
             if(someUserEmail) {
                 console.log('there is a same email');
                 isEmailValid = false;
                 emailCheck.style.color = 'red';
                 emailCheck.textContent = "Enter a valid and unique email address.";
-
             }
-
-        });
+        })
+        .catch(err => {
+            console.error(`data base is empty : ${err}`);
+        })
         
 
     if(val.trim() === '') {
@@ -205,9 +209,9 @@ function emailValidation() {
 function checkBoxValidation() {
 
     if(checkBox.checked) {
-        isCheckBoxValid = true;
+        return isCheckBoxValid = true;
     } else {
-        isCheckBoxValid = false;
+        return isCheckBoxValid = false;
     }
 
 };
