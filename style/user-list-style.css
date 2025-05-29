@@ -162,28 +162,23 @@ main {
 }
 
 button {
-    height: 50%;
+    height: 35%;
     width: 25%;
     border: none;
     cursor: pointer;
     border-radius: 0.8rem;
     transition: background 0.3s ease;
-  }
+}
   
-  .deleteButton {
-    background-color: #e03b3b;
+.deleteButton {
+    background-color: #8a13eb;
     color: white;
-  }
+}
+
+.deleteButton:hover {
+    background-color: #6e11b9;
+}
+.deleteButton:active {
+    background-color: #4e0c85;
+}
   
-  .deleteButton:hover {
-    background-color: #be2424;
-  }
-  
-  .editButton {
-    background-color: #3377ff;
-    color: white;
-  }
-  
-  .editButton:hover {
-    background-color: #1f5fdf;
-  }

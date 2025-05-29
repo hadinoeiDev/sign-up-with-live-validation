@@ -4,35 +4,7 @@ function postUserData(event) {
      
     // if user clicked submit before fill inputs , these conditions gonna run
    
-    if (!isFirstNameIsValid) {
-        firstNameCheck.style.display = 'flex';
-    } 
-
-    if (!isLastNameIsValid) {
-        lastNameCheck.style.display = 'flex';
-    } 
-
-    if (!isPasswordValid) {
-        [passwordRules ,onlyEnglishCheck ,lengthCheck ,uppercaseCheck ,numberCheck].forEach(para => {
-            para.style.display = 'flex';
-        })
-    } 
-
-    if (!isEmailValid) {
-        emailCheck.textContent = 'Invalid email';
-        
-        [emailRules, emailCheck].forEach(para => {
-            para.style.display = 'flex';
-        })
-    }
-    
-    if (!isCheckBoxValid) {
-        checkBoxCheck.style.display = 'flex';
-
-    } else {
-        checkBoxCheck.style.display = 'none';
-
-    }
+    inputsConditions();
 
     // submitCheck validation conditions
 
@@ -87,6 +59,9 @@ function postUserData(event) {
             autoClean();
             hideElements();
 
+            inputsConditions();
+            resetValidationUI();
+
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -134,6 +109,7 @@ function postUserData(event) {
 
 };
 
+
 function autoClean() {
     userFirstName.value = "";
     userLastName.value = "";
@@ -145,8 +121,6 @@ function autoClean() {
     submitCheck.textContent = 'done';
 
 }
-
-
 
 function hideElements() {
 
@@ -164,6 +138,55 @@ function hideElements() {
     userPassword.type= "password";
     togglePassword.innerHTML = hide;
 
+}
+
+function inputsConditions() {
+
+    if (!isFirstNameIsValid) {
+        firstNameCheck.style.display = 'flex';
+    } 
+    
+    if (!isLastNameIsValid) {
+        lastNameCheck.style.display = 'flex';
+    } 
+    
+    if (!isPasswordValid) {
+        [passwordRules ,onlyEnglishCheck ,lengthCheck ,uppercaseCheck ,numberCheck].forEach(para => {
+            para.style.display = 'flex';
+        })
+    } 
+    
+    if (!isEmailValid) {
+        emailCheck.textContent = 'Invalid email';
+        
+        [emailRules, emailCheck].forEach(para => {
+            para.style.display = 'flex';
+        })
+    }
+    
+    if (!isCheckBoxValid) {
+        checkBoxCheck.style.display = 'flex';
+        
+    } else {
+        checkBoxCheck.style.display = 'none';
+        
+    }
+}
+
+function resetValidationUI() {
+    isFirstNameIsValid = false;
+    isLastNameIsValid = false;
+    isPasswordValid = false;
+    isEmailValid = false;
+    isCheckBoxValid = false;
+
+    [passwordRules ,onlyEnglishCheck ,lengthCheck ,uppercaseCheck ,numberCheck].forEach(para => {
+        para.style.color = 'red';
+    });
+
+    [emailRules, emailCheck].forEach(para => {
+        para.style.color = 'red';
+    });
 }
 
 submit.addEventListener('click', postUserData);

@@ -25,7 +25,6 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
                         <p class="newUserId">ID:  <span>${userInfo.id}</span></p>
                     </div>
                     <div class = "buttons">
-                        <button class="editButton">edit</button>
                         <button onclick='deleteBtn(event)' class="deleteButton" data-id="${userId}">delete</button>
                     </div>
                 </li>

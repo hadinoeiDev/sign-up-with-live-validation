@@ -46,11 +46,7 @@ const show =
 
 let passwordFlag = false;
 
-let isFirstNameIsValid = false;
-let isLastNameIsValid = false;
-let isPasswordValid = false;
-let isEmailValid = false;
-let isCheckBoxValid = false;
+resetValidationStates();
 
 function LastNameValidation() {
     let val = userLastName.value;
@@ -217,6 +213,15 @@ function checkBoxValidation() {
 };
 
 
+// reset validation 
+
+function resetValidationStates() {
+    isFirstNameIsValid = false;
+    isLastNameIsValid = false;
+    isPasswordValid = false;
+    isEmailValid = false;
+    isCheckBoxValid = false;
+}
 
 
 userFirstName.addEventListener('input', FirstNameValidation);
