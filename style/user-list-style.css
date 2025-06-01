@@ -5,6 +5,11 @@
     font-family: 'poppins';
 }
 
+
+body {
+    position: relative;
+}
+
 /* header styles */
 
 header {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/user-list-style.css">
+    <link rel="stylesheet" href="style/edit-container-style.css">
     <link rel="stylesheet" href="style/user-list-responsive.css">
     <script src="scripts/fetch-GET.js" defer></script>
     <script src="scripts/fetch-PUT.js" defer></script>
@@ -21,6 +22,18 @@
 
 </head>
 <body>
+    <div class="editContainer">
+        <form action="" class="editForm">
+            <p>edit user data:</p>
+            <div class="first-lastName">
+                <input type="text" class="firstNmeEdit" placeholder="FirstName">
+                <input type="text" class="lastNmeEdit" placeholder="FirstName">
+            </div>
+            <!-- im gonna add password and email inputs here for edit in future -->
+            <input type="submit" class="submitEdit">
+        </form>
+    </div>
+
     <header>
         <div class="headContainer">
             <div class="row1">
