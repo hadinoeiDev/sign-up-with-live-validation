@@ -37,7 +37,6 @@ function postUserData(event) {
         submitCheck.style.color = '#00c500';
         
         let userData = {
-            id: Math.floor(Math.random() * 1000000000),
             userFirstName: userFirstName.value,
             userLastName: userLastName.value,
             userPassword: userPassword.value,

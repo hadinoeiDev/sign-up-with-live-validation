@@ -21,8 +21,7 @@ fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
                     <div class = "user-data">
                         <p class="newUserName"><span>${userInfo.userFirstName} ${userInfo.userLastName}</span></p>
                         <p class="newUserEmail">Email: <span>${userInfo.userEmail}</span></p>
-                        <p class="newUserPassword">password: <span>${userInfo.userPassword}</span></p>
-                        <p class="newUserId">ID:  <span>${userInfo.id}</span></p>
+                        <p class="newUserId">ID:  <span>${userId}</span></p>
                     </div>
                     <div class = "buttons">
                         <button onclick='editBtn(event)' class="editButton" data-id="${userId}">Edit</button>

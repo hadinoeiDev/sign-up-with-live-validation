@@ -1,29 +1,40 @@
 const editContainer = $.querySelector('.editContainer');
 const firstNmeEdit = $.querySelector('.firstNmeEdit');
 const lastNmeEdit = $.querySelector('.lastNmeEdit');
-const passwordEdit = $.querySelector('.passwordEdit');
 const emailEdit = $.querySelector('.emailEdit');
 const submitEdit = $.querySelector('.submitEdit');
 
-function editBtn() {
+let userIdToEdit = null;
+
+function editBtn(event) {
     editContainer.style.display = 'flex';
+    userIdToEdit = event.target.dataset.id;
+
+    fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userIdToEdit}.json`)
+        .then(res => res.json())
+        .then(userData => {
+            // ذخیره پسورد قبلی
+            oldPassword = userData.userPassword;
+            // پر کردن فرم با اطلاعات کاربر
+            firstNmeEdit.value = userData.userFirstName;
+            lastNmeEdit.value = userData.userLastName;
+            emailEdit.value = userData.userEmail;
+        });
+
+
 }
 
 function submitEditBtn(event) {
     event.preventDefault();
-    console.log(event.target.parentElement.parentElement);
-
-    const userId = event.target.dataset.id;
     
-    
-
     let editedData = {
-            id: userId,
-            userFirstName: firstNmeEdit.value,
-            userLastName: lastNmeEdit.value,
-
+        userFirstName: firstNmeEdit.value,
+        userLastName: lastNmeEdit.value,
+        userPassword: oldPassword,
+        userEmail: emailEdit.value,
     }
-    fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userId}.json`, {
+
+    fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userIdToEdit}.json`, {
         method: 'PUT',
         headers: {
           "Content-Type": "application/json",

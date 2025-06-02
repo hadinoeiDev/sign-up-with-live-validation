@@ -16,7 +16,6 @@ function deleteBtn(event) {
             return res.json();    
         })
         .then(data => {
-            console.log(data);
         })
 
     
