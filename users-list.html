@@ -26,10 +26,19 @@
         <form action="" class="editForm">
             <p>edit user data:</p>
             <div class="first-lastName">
-                <input type="text" class="firstNmeEdit" placeholder="FirstName">
-                <input type="text" class="lastNmeEdit" placeholder="FirstName">
+                <div class="firstNameEditBox">    
+                    <input type="text" class="firstNmeEdit" placeholder="FirstName">
+                    <p class="validations" id="firstNameEditCheck">invalid!</p>
+                </div>
+                <div class="lastNameEditBox">
+                    <input type="text" class="lastNmeEdit" placeholder="FirstName">
+                    <p class="validations" id="lastNameEditCheck">invalid!</p>
+                </div>
             </div>
-            <input type="text" class="emailEdit" placeholder="Email">
+             <div class="emailEditBox">
+                 <input type="text" class="emailEdit" placeholder="Email">
+                <p class="validations" id="emailEditCheck">invalid!</p>
+            </div>
             <input type="submit" class="submitEdit">
         </form>
     </div>

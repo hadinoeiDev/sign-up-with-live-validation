@@ -24,6 +24,7 @@
 }
 
 input {
+    font-family: 'poppins', "dana";
     border-radius: 0.8rem;
     border: none;
     padding: 0.8rem;
@@ -39,4 +40,15 @@ input {
 }.submitEdit:active {
     color: #fcfdff;
     background-color: rgb(0, 63, 134);
+}
+
+.validations {
+    display: none;
+    color: red;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.emailEditBox {
+    width: 100%;
 }
