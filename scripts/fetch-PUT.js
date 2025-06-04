@@ -33,6 +33,7 @@ function firstNameEditValidation() {
     }
 }
 
+
 function lastNameEditValidation() {
      let val = lastNmeEdit.value;
 
@@ -111,7 +112,6 @@ function emailEditValidation() {
 };
 
 
-
 function editBtn(event) {
     editContainer.style.display = 'flex';
     userIdToEdit = event.target.dataset.id;
@@ -129,6 +129,7 @@ function editBtn(event) {
     
     
 }
+
 
 function submitEditBtn(event) {
     event.preventDefault();
