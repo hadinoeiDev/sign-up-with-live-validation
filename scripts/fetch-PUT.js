@@ -7,6 +7,7 @@ const submitEdit = $.querySelector('.submitEdit');
 const firstNameEditCheck = $.querySelector('#firstNameEditCheck');
 const lastNameEditCheck = $.querySelector('#lastNameEditCheck');
 const emailEditCheck = $.querySelector('#emailEditCheck');
+const submitCheck = $.querySelector('#submitEditCheck');
 
 let isFirstNameEditValid = false;
 let isLastNameEditValid = false;
@@ -133,31 +134,41 @@ function editBtn(event) {
 
 function submitEditBtn(event) {
     event.preventDefault();
+
+    let allValid = isFirstNameEditValid &&isLastNameEditValid &&isEmailEditValid ;
     
-    let editedData = {
-        userFirstName: firstNmeEdit.value,
-        userLastName: lastNmeEdit.value,
-        userPassword: oldPassword,
-        userEmail: emailEdit.value,
-    }
-    
-    fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userIdToEdit}.json`, {
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(editedData)
-    })
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        console.log(data);
+    if(allValid) {
+
+        let editedData = {
+            userFirstName: firstNmeEdit.value,
+            userLastName: lastNmeEdit.value,
+            userPassword: oldPassword,
+            userEmail: emailEdit.value,
+        }
         
-    })
-    
-    editContainer.style.display = 'none';
+        fetch(`https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users/${userIdToEdit}.json`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(editedData)
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            
+        })
+        
+        editContainer.style.display = 'none';
+
+    } else {
+        submitCheck.display = 'flex';
+        submitCheck.textContent = 'confirm all field first!';
+    }
 }
+
 
 firstNmeEdit.addEventListener('input', firstNameEditValidation);
 lastNmeEdit.addEventListener('input', lastNameEditValidation);

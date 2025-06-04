@@ -89,7 +89,7 @@ function postUserData(event) {
         submitCheck.textContent = `Only one field is correct! Please fill out all fields properly.`;
     
     } else if (onlyFirstNameInvalid) {
-
+        
         submitCheck.style.display = 'flex';
         submitCheck.style.color = 'red';
         submitCheck.textContent = 'Make sure your first name is correct!'; 
