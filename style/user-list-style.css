@@ -176,15 +176,15 @@ button {
 }
   
 .deleteButton {
-    background-color: #8a13eb;
+    background-color: #e21664;
     color: white;
 }
 
 .deleteButton:hover {
-    background-color: #6e11b9;
+    background-color: #e216b9;
 }
 .deleteButton:active {
-    background-color: #4e0c85;
+    background-color: #e21685;
 }
     
 .editButton {

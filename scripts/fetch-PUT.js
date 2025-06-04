@@ -1,13 +1,14 @@
 const editContainer = $.querySelector('.editContainer');
-const firstNmeEdit = $.querySelector('.firstNmeEdit');
-const lastNmeEdit = $.querySelector('.lastNmeEdit');
+const firstNameEdit = $.querySelector('.firstNameEdit');
+const lastNameEdit = $.querySelector('.lastNameEdit');
 const emailEdit = $.querySelector('.emailEdit');
-const submitEdit = $.querySelector('.submitEdit');
+const submitEdit = $.querySelector('.submitBtn');
 
 const firstNameEditCheck = $.querySelector('#firstNameEditCheck');
 const lastNameEditCheck = $.querySelector('#lastNameEditCheck');
 const emailEditCheck = $.querySelector('#emailEditCheck');
 const submitCheck = $.querySelector('#submitEditCheck');
+
 
 let isFirstNameEditValid = false;
 let isLastNameEditValid = false;
@@ -16,7 +17,7 @@ let isEmailEditValid = false;
 let userIdToEdit = null;
 
 function firstNameEditValidation() {
-     let val = firstNmeEdit.value;
+     let val = firstNameEdit.value;
 
     const hasOnlyEnglishChars = /^[A-Za-z]+$/.test(val);
 
@@ -36,7 +37,7 @@ function firstNameEditValidation() {
 
 
 function lastNameEditValidation() {
-     let val = lastNmeEdit.value;
+     let val = lastNameEdit.value;
 
     const hasOnlyEnglishChars = /^[A-Za-z]+$/.test(val);
 
@@ -64,7 +65,9 @@ function emailEditValidation() {
 
      
     if (val.trim() === '') {
-        return isEmailEditValid = false;
+        isEmailEditValid = false;
+        emailEditCheck.style.color = 'red';
+        return;
     }
     
     fetch('https://hadi-noei-sign-up-form-default-rtdb.firebaseio.com/users.json')
@@ -91,12 +94,6 @@ function emailEditValidation() {
         })
         
 
-    if(val.trim() === '') {
-        isEmailEditValid = false;
-        emailEditCheck.style.color = 'red';
-        return;
-    }
-
     emailEditCheck.style.display = "flex";
     
     if (emailValidRegex) {
@@ -122,10 +119,7 @@ function editBtn(event) {
     .then(userData => {
         // ذخیره پسورد قبلی
         oldPassword = userData.userPassword;
-        // پر کردن فرم با اطلاعات کاربر
-        firstNmeEdit.value = userData.userFirstName;
-        lastNmeEdit.value = userData.userLastName;
-        emailEdit.value = userData.userEmail;
+
     });
     
     
@@ -135,13 +129,15 @@ function editBtn(event) {
 function submitEditBtn(event) {
     event.preventDefault();
 
-    let allValid = isFirstNameEditValid &&isLastNameEditValid &&isEmailEditValid ;
+    let allValid = isFirstNameEditValid && isLastNameEditValid && isEmailEditValid ;
+    
+    console.log(isFirstNameEditValid, isLastNameEditValid, isEmailEditValid);
     
     if(allValid) {
 
         let editedData = {
-            userFirstName: firstNmeEdit.value,
-            userLastName: lastNmeEdit.value,
+            userFirstName: firstNameEdit.value,
+            userLastName: lastNameEdit.value,
             userPassword: oldPassword,
             userEmail: emailEdit.value,
         }
@@ -158,19 +154,37 @@ function submitEditBtn(event) {
         })
         .then(data => {
             console.log(data);
+            autoCleanEdit();
+            editContainer.style.display = 'none';
+            location.reload();
             
         })
+
         
-        editContainer.style.display = 'none';
 
     } else {
-        submitCheck.display = 'flex';
-        submitCheck.textContent = 'confirm all field first!';
+        submitCheck.style.display = 'flex';
     }
+
+
+
 }
 
+function autoCleanEdit() {
 
-firstNmeEdit.addEventListener('input', firstNameEditValidation);
-lastNmeEdit.addEventListener('input', lastNameEditValidation);
+    [firstNameEdit, lastNameEdit, emailEdit].forEach(para => {
+        para.value = "";
+    })  
+
+    console.log(firstNameEditCheck, lastNameEditCheck, emailEditCheck, submitCheck);
+
+    [firstNameEditCheck, lastNameEditCheck, emailEditCheck, submitCheck].forEach(para => {
+        para.style.display = 'none';
+    });
+    
+}
+
+firstNameEdit.addEventListener('input', firstNameEditValidation);
+lastNameEdit.addEventListener('input', lastNameEditValidation);
 emailEdit.addEventListener('input', emailEditValidation);
 submitEdit.addEventListener('click',submitEditBtn);

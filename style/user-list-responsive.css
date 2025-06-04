@@ -65,7 +65,7 @@
         width: 75%;
     }
 
-    button {
+    .editButton, .deleteButton {
       margin-top: 1rem;
       height: 3rem;
       width: 20rem;
@@ -130,7 +130,8 @@
         width: 50%;
     }
 
-    button {
+
+    .editButton, .deleteButton {
       margin-top: 1rem;
       height: 3rem;
       width: 20rem;
@@ -143,12 +144,12 @@
 
 
 @media (min-width: 851px) and (max-width: 1400px) {
-      button {
-      width: 50%;
-      border: none;
-      cursor: pointer;
-      border-radius: 0.8rem;
-      transition: background 0.3s ease;
+    .editButton, .deleteButton {
+        width: 50%;
+        border: none;
+        cursor: pointer;
+        border-radius: 0.8rem;
+        transition: background 0.3s ease;
     }
     
     .nav-links {
